@@ -1,3 +1,12 @@
+def generate_tiles_rects(rect_shape, tile_shape, tile_step, generator_mode=False):
+    generator_ = gen_slice_rect(rect_shape, tile_shape, tile_step)
+    if generator_mode:
+        return generator_
+    else:
+        tiles_rects = list(generator_)
+        return tiles_rects
+
+
 def gen_slice_rect(rect_size, tile_size, tile_step):
     # tiles_rects = []
     x, y = (0, 0)
