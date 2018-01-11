@@ -64,3 +64,5 @@ def jpeg_to_matrix(jpeg_):
     return pilimage_to_matrix(jpeg_to_pilimg(jpeg_))
 
 
+def resize_pilimg(pilimg: Image.Image, size):
+    return pilimg.resize(size)

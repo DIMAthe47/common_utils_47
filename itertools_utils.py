@@ -3,7 +3,7 @@ from functools import partial
 import numpy as np
 
 
-def chunkify(iterable_, chunk_size, numpy_array_chunks=True):
+def chunkify(iterable_, chunk_size, numpy_array_chunks=False):
     if chunk_size == -1:
         chunk = tuple(iterable_)
         chunks_stream = [chunk]
@@ -17,9 +17,9 @@ def chunkify(iterable_, chunk_size, numpy_array_chunks=True):
         #     print(i.shape)
         chunks_stream = tw(bool, (tuple(islice(it_iter, chunk_size)) for _ in count()))
     # chunks_stream = tee_print_iterable(chunks_stream)
-    for chunk_stream in chunks_stream:
-        print(chunk_stream)
-        print(np.array(chunk_stream,copy=False).shape)
+    # for chunk_stream in chunks_stream:
+    #     print(chunk_stream)
+    #     print(np.array(chunk_stream,copy=False).shape)
 
     if numpy_array_chunks:
         chunks_stream = map(partial(np.array, copy=False), chunks_stream)
