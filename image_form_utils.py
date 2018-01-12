@@ -21,7 +21,7 @@ def pure_pil_alpha_to_color_v2(pilimg, color=(255, 255, 255)):
     return background
 
 
-def img_matrix_to_gray_img_matrix(img_matrix):
+def img_matrix_to_gray_img_matrix(img_matrix)->np.ndarray:
     pilimg_gray = img_matrix_to_pil_image(img_matrix, grayscale=True)
     img_gray_matrix = pilimage_to_matrix(pilimg_gray)
     return img_gray_matrix
